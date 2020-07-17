@@ -6,10 +6,25 @@ This project provides sample source code containing multiple vulnerabilities, in
 * Unreleased Resource: Streams
 * J2EE Bad Practices: Leftover Debug Code
 
-This sample Java program takes an integer as an argument:
+The sections below describe how to:
+* [Build and use the sample program](#sample-usage)
+* [Scan the sample program using a local Fortify SCA installation](#local-scans)
+* [Scan the sample program on a Fortify ScanCentral environment](#scan-using-fortify-scancentral)
+* [Scan the sample program using Fortify on Demand (FoD)](#scan-using-fortify-on-demand-fod)
 
-* `java EightBall 391`
-* `java EightBall 2000`
+This document focuses on performing scans from the command line; please see the relevant documentation 
+if you would want to utilize IDE or CI/CD plugins for scanning the source code.
+
+# Sample usage
+
+This sample Java program can be built using the `mvn clean package` Maven command, which will produce 
+the `target/EightBall-1.0.jar` executable jar file. The sample program takes an integer as an argument:
+
+* `java -jar target/EightBall-1.0.jar 0`
+* `java -jar target/EightBall-1.0.jar 1`
+* `java -jar target/EightBall-1.0.jar 2`
+* `java -jar target/EightBall-1.0.jar 391`
+* `java -jar target/EightBall-1.0.jar 2000`
 
 Normally, this program replies with a message from the files 0, 1, or 2.  However,
 due to bad error handling, if you put a filename instead of an integer as
@@ -17,14 +32,9 @@ the argument, it shows the contents of the file.  (For simplicity, the
 user input comes from the command line argument.  What would happen if it
 came from a web form?)  Try:
 
-* `java EightBall /etc/passwd` (on Unix)
-* `java EightBall C:\autoexec.bat` (on Windows)
-
-The following sections describe various approaches for scanning this vulnerable source code
-using on a [local machine](#local-scans), on [ScanCentral](#scan-using-fortify-scancentral), 
-and on [Fortify on Demand](#scan-using-fortify-on-demand-fod). This document focuses on 
-performing scans from the command line; please see the relevant documentation if you would want to 
-utilize IDE or CI/CD plugins for scanning the source code.
+* `java jar target/EightBall-1.0.jar pom.xml`
+* `java jar target/EightBall-1.0.jar /etc/passwd` (on Unix)
+* `java jar target/EightBall-1.0.jar C:\autoexec.bat` (on Windows)
 
 ## Local Scans
 
