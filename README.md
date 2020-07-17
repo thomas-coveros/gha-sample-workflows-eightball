@@ -15,7 +15,7 @@ The sections below describe how to:
 This document focuses on performing scans from the command line; please see the relevant documentation 
 if you would want to utilize IDE or CI/CD plugins for scanning the source code.
 
-# Sample usage
+## Sample usage
 
 The source code for this sample program can be found in [src/main/java/com/fortify/sca/plugins/maven/samples/EightBall.java](src/main/java/com/fortify/sca/plugins/maven/samples/EightBall.java). 
 The source code can be built from the top-level directory using the `mvn clean package` Maven command, which will produce 
