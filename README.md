@@ -17,7 +17,8 @@ if you would want to utilize IDE or CI/CD plugins for scanning the source code.
 
 # Sample usage
 
-This sample Java program can be built using the `mvn clean package` Maven command, which will produce 
+This source code for this sample Java program can be found in [src/main/java/com/fortify/sca/plugins/maven/samples/EightBall.java](src/main/java/com/fortify/sca/plugins/maven/samples/EightBall.java). 
+The source code can be built from the top-level directory using the `mvn clean package` Maven command, which will produce 
 the `target/EightBall-1.0.jar` executable jar file. The sample program takes an integer as an argument:
 
 * `java -jar target/EightBall-1.0.jar 0`
