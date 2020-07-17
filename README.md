@@ -35,11 +35,11 @@ or on a central build system that has Fortify Static Code Analyzer installed.
 The following commands illustrate the most basic way for performing a Fortify SCA scan, without
 utilizing any build integration.
 
-* `sourceanalyzer -b EightBall -clean`
+* `sourceanalyzer -b EightBall -clean`  
     Clean the EightBall build model
-* `sourceanalyzer -b EightBall src/**/*`
+* `sourceanalyzer -b EightBall src/**/*`  
     Translate all source files with a known file extension located in the src directory tree. 
-* `sourceanalyzer -b EightBall -scan -f EightBall.fpr`
+* `sourceanalyzer -b EightBall -scan -f EightBall.fpr`  
     Scan the previously translated source files and output potential vulnerabilities to EightBall.fpr
 
 Note that this sample doesn't have any dependencies; for most projects you would also need to pass the 
@@ -61,20 +61,20 @@ describe various approaches for using the Maven build integration.
 
 #### As a Maven plugin
 
-* `mvn com.fortify.sca.plugins.maven:sca-maven-plugin:<version>:clean`
+* `mvn com.fortify.sca.plugins.maven:sca-maven-plugin:<version>:clean`  
     Clean the build model; the build id is automatically generated based on artifact id and version
-* `mvn com.fortify.sca.plugins.maven:sca-maven-plugin:<version>:translate`
+* `mvn com.fortify.sca.plugins.maven:sca-maven-plugin:<version>:translate`  
     Translate the source code, using standard Maven mechanisms for locating source code and resolving dependencies
-* `mvn com.fortify.sca.plugins.maven:sca-maven-plugin:<version>:scan`
+* `mvn com.fortify.sca.plugins.maven:sca-maven-plugin:<version>:scan`  
     Scan the previously translated source files and output potential vulnerabilities to an FPR file located in the `target/fortify` directory
 
 #### Invoke Maven through Fortify SCA
 
-* `sourceanalyzer -b EightBall -clean`
+* `sourceanalyzer -b EightBall -clean`  
     Clean the EightBall build model
-* `sourceanalyzer -b EightBall mvn package`
+* `sourceanalyzer -b EightBall mvn package`  
     Have sourceanalyzer invoke Maven for you to perform the translation 
-* `sourceanalyzer -b EightBall -scan -f EightBall.fpr`
+* `sourceanalyzer -b EightBall -scan -f EightBall.fpr`  
     Scan the previously translated source files and output potential vulnerabilities to EightBall.fpr
 
 
@@ -100,9 +100,9 @@ Fortify on Demand. FoD users can manually package their source code in a zip fil
 listed in the FoD documentation, or they can utilize ScanCentral Client to package source code and dependencies automatically 
 as illustrated by the following commands:
 
-* `scancentral package -bt mvn -o package.zip`
+* `scancentral package -bt mvn -o package.zip`  
     Package source code and dependencies (if any) into a file named package.zip
-* `java -jar FoDUpload.jar -portalurl <portalUrl> -apiurl <apiUrl> -tenantCode <tentant> -releaseId <releaseId> -z package.zip -uc <user> <password>`
+* `java -jar FoDUpload.jar -portalurl <portalUrl> -apiurl <apiUrl> -tenantCode <tentant> -releaseId <releaseId> -z package.zip -uc <user> <password>`  
     Upload package.zip to FoD in order to be scanned
 
 Note that this example utilizes ScanCentral Client **only** for packaging source code; we don't utilize any other
