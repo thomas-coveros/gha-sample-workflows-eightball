@@ -16,4 +16,4 @@ For repositories that were derived from the main sample-eightball repository, mo
 about the purpose of the repository may be available here: [doc/Repo-Info.md](doc/Repo-Info.md).
 
 Developers that would like to use the main sample-eightball repository as a template can refer to 
-doc/Git-Template.md](doc/Git-Template.md).
+[doc/Git-Template.md](doc/Git-Template.md).
