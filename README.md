@@ -21,9 +21,10 @@ came from a web form?)  Try:
 * `java EightBall C:\autoexec.bat` (on Windows)
 
 The following sections describe various approaches for scanning this vulnerable source code
-with the various Fortify products. This document focuses on performing scans from the command
-line; please see the relevant documentation if you would want to utilize IDE or CI/CD plugins
-for scanning the source code.
+using on a [local machine](#local-scans), on [ScanCentral](#scan-using-fortify-scancentral), 
+and on [Fortify on Demand](#scan-using-fortify-on-demand-fod). This document focuses on 
+performing scans from the command line; please see the relevant documentation if you would want to 
+utilize IDE or CI/CD plugins for scanning the source code.
 
 ## Local Scans
 
