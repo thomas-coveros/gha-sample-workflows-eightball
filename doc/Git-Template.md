@@ -1,21 +1,26 @@
-# Using this project as a template
+# Using the EightBall example project as a template
 
 This section describes how to use this repository as a template for other repositories,
 for example if you wish to add sample pipelines/workflows/... that demonstrate how to 
 scan the EightBall application in a particular CI/CD environment.
 
-To set up a new repository, you can use the following steps:
+Use the following steps to set up a new repository that is derived from this EightBall sample project:
 
-1. Create new, empty Git repository, for example https://github.com/user/sample-eightball-derived
-2. Clone your empty repository and add the template remote:
-    1. `git clone https://github.com/user/sample-eightball-derived.git`
-	2. `git remote add template https://github.com/fortify/sample-eightball.git`
-3. Merge template changes to your current branch:
-	1. `git fetch --all`
-	2. `git merge template/master`
-4. Push changes
-	1. `git push`
+1. Create new, empty Git repository
+2. Pull the contents of the main sample repository:
+    * `git pull https://github.com/fortify/sample-eightball.git`  
+3. Configure repository, commit some useful scripts, and add new README.md
+    * `template/setup-derived.sh`
+4. Update README.md in the root of the repository to describe your project
+5. Commit your updated README.md file:
+    * `git commit -m "Updated README.md" README.md
+	
+After initial set-up, the following utility scripts are available:
+* `run-after-clone.sh`: This script should be run whenever the repository has been cloned into a new local repository
+* `pull-template.sh`: This script pulls any changes from the main EightBall sample project into the current repository
+    * Based on `.gitattributes`, README.md will be ignored during merges
 
-If you wish to clone your `sample-eightball-derived` repository onto a new machine/directory, you will need
-to repeat steps 2.1 (clone) and 2.2 (add template remote). If you want to merge any updates on the original 
-sample-eightball repository into your current repository, you will need to repeat steps 3.1 (fetch) and 3.2 (merge).
+
+
+
+
