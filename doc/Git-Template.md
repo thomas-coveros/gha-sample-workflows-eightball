@@ -17,8 +17,8 @@ Use the following steps to set up a new repository that is derived from this Eig
 	
 After initial set-up, the following utility scripts are available:
 * `run-after-clone.sh`: This script should be run whenever the repository has been cloned into a new local repository
-* `pull-template.sh`: This script pulls any changes from the main EightBall sample project into the current repository
-    * Based on `.gitattributes`, README.md will be ignored during merges
+* `template/pull.sh`: This script pulls any changes from the main EightBall sample project into the current repository
+    * Based on `.gitattributes` in the repository root, README.md will be ignored during merges
 
 
 

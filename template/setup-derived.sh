@@ -5,14 +5,15 @@
 # - Commit the changes
 
 templateDir=$(dirname "$0")
+resourcesDir=$templateDir/resources
 rootDir=$templateDir/..
 copyOnly=(README.md)
-copyAndAdd=(.gitattributes run-after-clone.sh pull-template.sh)
+copyAndAdd=(.gitattributes run-after-clone.sh)
 
 function copy() {
   for f in "$@"
   do
-    cp -v "$templateDir/$f" "$rootDir/$f"
+    cp -v "$resourcesDir/$f" "$rootDir/$f"
   done
 }
 
@@ -41,4 +42,4 @@ add ${copyAndAdd[*]}
 $rootDir/run-after-clone.sh
 
 # Commit changes
-git commit -m "Copied template scripts"
+git commit -m "Setup as derived repository"
