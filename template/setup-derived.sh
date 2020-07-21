@@ -32,8 +32,8 @@ then
 fi
 
 # Move original README.md and add to Git index
-mv -v "$rootDir/README.md" "$rootDir/doc/EightBall.md"
-git add -v "$rootDir/doc/EightBall.md"
+mv -v "$rootDir/README.md" "$rootDir/README-EightBall.md"
+git add -v "$rootDir/README-EightBall.md"
 
 copy ${copyOnly[*]} ${copyAndAdd[*]}
 add ${copyAndAdd[*]}
