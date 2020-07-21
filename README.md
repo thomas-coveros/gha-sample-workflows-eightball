@@ -1,4 +1,4 @@
-# GitHub Actions sample workflows
+# GitHub Actions sample workflows - EightBall
 
 *Please run the `./run-after-clone.sh` script after cloning this repository*
 
