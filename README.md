@@ -1,4 +1,4 @@
-# Derived from https://github.com/fortify/sample-eightball.git
+# GitHub Actions sample workflows
 
 *Please run the `./run-after-clone.sh` script after cloning this repository*
 
