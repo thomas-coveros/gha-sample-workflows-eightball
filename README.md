@@ -5,4 +5,5 @@
 This repository provides various sample GitHub Workflows for scanning the EightBall example and reporting scan results.
 Please see the contents of the various workflow files in [.github/workflows](.github/workflows) for more information.
 
-This project is derived from https://github.com/fortify/sample-eightball.git.
+This repository is derived from https://github.com/fortify/sample-eightball.git. To update this repository with updated 
+content from https://github.com/fortify/sample-eightball.git, please run `./repo-as-template/pull.sh`.
