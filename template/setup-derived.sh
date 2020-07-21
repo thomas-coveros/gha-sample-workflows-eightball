@@ -12,14 +12,14 @@ copyAndAdd=(.gitattributes run-after-clone.sh pull-template.sh)
 function copy() {
   for f in "$@"
   do
-    echo cp -v "$templateDir/$f" "$rootDir/$f"
+    cp -v "$templateDir/$f" "$rootDir/$f"
   done
 }
 
 function add() {
   for f in "$@"
   do
-    echo git add -v "$rootDir/$f"
+    git add -v "$rootDir/$f"
   done
 }
 
