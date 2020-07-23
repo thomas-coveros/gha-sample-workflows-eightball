@@ -14,13 +14,13 @@ jobs:
       - uses: fortify/gha-setup-bugtracker-utility@master
       - env:
           FBTU_FODBASEURL: https://ams.fortify.com/
-          FBTU_FODTENANT: FortifyPS
+          FBTU_FODTENANT: ${{ secrets.FOD_TENANT }}
           FBTU_FODUSERNAME: ${{ secrets.FOD_USER }}
           FBTU_FODPASSWORD: ${{ secrets.FOD_PAT }}
-          FBTU_FODRELEASEID: 251961
-          FBTU_JIRABASEURL: https://fortifybugtrackerutility.atlassian.net/
+          FBTU_FODRELEASEID: ${{ secrets.FOD_RELEASE_ID }}
+          FBTU_JIRABASEURL: ${{ secrets.JIRA_BASE_URL }}
           FBTU_JIRAUSERNAME: ${{ secrets.JIRA_USER }}
           FBTU_JIRAPASSWORD: ${{ secrets.JIRA_TOKEN }}
-          FBTU_JIRAPROJECTKEY: PRJ1
+          FBTU_JIRAPROJECTKEY: ${{ secrets.JIRA_PROJECT_KEY }}
         run: |
           java -jar "$FBTU_JAR" -configFile "$FBTU_DIR/FoDToJira.xml" -FoDBaseUrl "$FBTU_FODBASEURL" -FoDTenant "$FBTU_FODTENANT" -FoDUserName "$FBTU_FODUSERNAME" -FoDPassword "$FBTU_FODPASSWORD" -FoDReleaseId "$FBTU_FODRELEASEID" --JiraBaseUrl "$FBTU_JIRABASEURL" -JiraUserName "$FBTU_JIRAUSERNAME" -JiraPassword "$FBTU_JIRAPASSWORD" -JiraProjectKey "$FBTU_JIRAPROJECTKEY"
