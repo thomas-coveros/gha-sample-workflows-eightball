@@ -1,4 +1,4 @@
-name: Start FoD scan
+name: Start ScanCentral scan
 
 on: [workflow_dispatch]
 
