@@ -14,7 +14,7 @@ jobs:
       - uses: fortify/gha-setup-scancentral-client@v1
       - uses: fortify/gha-setup-fod-uploader@v1
         with:
-          INPUT_VERSION: v5.0.1
+          version: v5.0.1
       - run: scancentral package -bt mvn -o package.zip
       - run: java -jar $FOD_UPLOAD_JAR -z package.zip -aurl https://api.ams.fortify.com/ -purl https://ams.fortify.com/ -rid "$FOD_RELEASE_ID" -tc "$FOD_TENANT" -uc "$FOD_USER" "$FOD_PAT" -ep 2 -pp 1
         env: 
