@@ -1,0 +1,48 @@
+name: Start FoD scan with Import
+
+on: [workflow_dispatch]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - uses: fortify/gha-setup-scancentral-client@v1
+      - uses: fortify/gha-setup-fod-uploader@v1
+      - run: scancentral package -bt mvn -o package.zip
+      - run: java -jar $FOD_UPLOAD_JAR -z package.zip -aurl https://api.ams.fortify.com/ -purl https://ams.fortify.com/ -rid "$FOD_RELEASE_ID" -tc "$FOD_TENANT" -uc "$FOD_USER" "$FOD_PAT" -ep 2 -pp 0 -I 1
+        env: 
+          FOD_TENANT: ${{ secrets.FOD_TENANT }}  
+          FOD_USER: ${{ secrets.FOD_USER }}
+          FOD_PAT: ${{ secrets.FOD_PAT }}
+          FOD_RELEASE_ID: ${{ secrets.FOD_RELEASE_ID }} 
+      - uses: fortify/gha-fod-generate-sarif@master
+        with:
+          base-url: https://ams.fortify.com
+          tenant: ${{ secrets.FOD_TENANT }}
+          user: ${{ secrets.FOD_USER }}
+          password: ${{ secrets.FOD_PAT }}
+          release-id: ${{ secrets.FOD_RELEASE_ID }}
+          output: ./sarif/output.sarif
+      - uses: github/codeql-action/upload-sarif@v1
+        with:
+          sarif_file: ./sarif/output.sarif
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: sarif-files
+          path: ./sarif
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: scancentral-logs
+          path: ~/.fortify/scancentral/log
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: package.zip
+          path: package.zip
