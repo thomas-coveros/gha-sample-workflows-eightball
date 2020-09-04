@@ -1,4 +1,4 @@
-name: Start FoD scan with Import
+name: Fortify on Demand SAST Scan
 
 on: 
   workflow_dispatch:
