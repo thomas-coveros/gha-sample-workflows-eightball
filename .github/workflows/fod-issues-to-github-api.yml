@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: fortify/gha-fod-generate-sarif@master
+      - uses: fortify/gha-fod-generate-sarif@mst1k
         with:
           base-url: https://ams.fortify.com
           tenant: ${{ secrets.FOD_TENANT }}
