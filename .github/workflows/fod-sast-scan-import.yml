@@ -45,25 +45,25 @@ jobs:
       # Start Fortify on Demand SAST scan and wait until results complete. Be sure to set secrets/variables for your FoD tenant.
       - name: Download Fortify on Demand Universal CI Tool
         uses: fortify/gha-setup-fod-uploader@v1
-      - name: Perform SAST Scan
-        run: java -jar $FOD_UPLOAD_JAR -z package.zip -aurl $FOD_API_URL -purl $FOD_URL -rid "$FOD_RELEASE_ID" -tc "$FOD_TENANT" -uc "$FOD_USER" "$FOD_PAT" $FOD_UPLOADER_OPTS -n "$FOD_UPLOADER_NOTES"
-        env: 
-          FOD_TENANT: ${{ secrets.FOD_TENANT_PRESTIGE }}  
-          FOD_USER: ${{ secrets.FOD_USER_PRESTIGE }}
-          FOD_PAT: ${{ secrets.FOD_PAT_PRESTIGE }}
-          FOD_RELEASE_ID: ${{ secrets.FOD_RELEASE_ID_PRESTIGE }}
-          FOD_URL: "https://ams.fortify.com/"
-          FOD_API_URL: "https://api.ams.fortify.com/"
-          FOD_UPLOADER_OPTS: "-ep 2 -pp 0 -I 1 -apf"
-          FOD_UPLOADER_NOTES: 'Triggered by GitHub Actions (${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})'
+#      - name: Perform SAST Scan
+#        run: java -jar $FOD_UPLOAD_JAR -z package.zip -aurl $FOD_API_URL -purl $FOD_URL -rid "$FOD_RELEASE_ID" -tc "$FOD_TENANT" -uc "$FOD_USER" "$FOD_PAT" $FOD_UPLOADER_OPTS -n "$FOD_UPLOADER_NOTES"
+#        env: 
+#          FOD_TENANT: ${{ secrets.FOD_TENANT_PRESTIGE }}  
+#          FOD_USER: ${{ secrets.FOD_USER_PRESTIGE }}
+#          FOD_PAT: ${{ secrets.FOD_PAT_PRESTIGE }}
+#          FOD_RELEASE_ID: ${{ secrets.FOD_RELEASE_ID_PRESTIGE }}
+#          FOD_URL: "https://ams.fortify.com/"
+#          FOD_API_URL: "https://api.ams.fortify.com/"
+#          FOD_UPLOADER_OPTS: "-ep 2 -pp 0 -I 1 -apf"
+#          FOD_UPLOADER_NOTES: 'Triggered by GitHub Actions (${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})'
       
-      - run: sleep 30
+#      - run: sleep 30
       
       # Once scan completes, pull SAST issues from Fortify on Demand and generate SARIF output.
       - name: Download Results
         uses: fortify/gha-fod-generate-sarif@master
         with:
-          base-url: https://ams.fortify.com/
+          base-url: https://ams.fortify.com
           tenant: ${{ secrets.FOD_TENANT_PRESTIGE }}
           user: ${{ secrets.FOD_USER_PRESTIGE }}
           password: ${{ secrets.FOD_PAT_PRESTIGE }}
