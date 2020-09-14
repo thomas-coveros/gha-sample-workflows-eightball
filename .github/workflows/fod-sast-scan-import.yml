@@ -57,11 +57,11 @@ jobs:
           FOD_UPLOADER_OPTS: "-ep 2 -pp 0 -I 1 -apf"
           FOD_UPLOADER_NOTES: 'Triggered by GitHub Actions (${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }})'
       
-      - run: sleep 60
+      #- run: sleep 60
       
       # Once scan completes, pull SAST issues from Fortify on Demand and generate SARIF output.
       - name: Download Results
-        uses: fortify/gha-fod-generate-sarif@master
+        uses: fortify/gha-fod-generate-sarif@timing
         with:
           base-url: https://ams.fortify.com
           tenant: ${{ secrets.FOD_TENANT_PRESTIGE }}
