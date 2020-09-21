@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: fortify/gha-fod-generate-sarif@security-mapping
+      - uses: fortify/gha-fod-generate-sarif@severity-mapping
         with:
           base-url: https://ams.fortify.com
           tenant: ${{ secrets.FOD_TENANT_PRESTIGE }}
