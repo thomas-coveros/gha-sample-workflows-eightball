@@ -13,7 +13,7 @@ jobs:
           tenant: ${{ secrets.FOD_TENANT_PRESTIGE }}
           user: ${{ secrets.FOD_USER_PRESTIGE }}
           password: ${{ secrets.FOD_PAT_PRESTIGE }}
-          release-id: ${{ secrets.FOD_RELEASE_ID_PRESTIGE }}
+          release-id: ${{ secrets.FOD_RELEASE_ID2 }}
           output: ./sarif/output.sarif
       - uses: github/codeql-action/upload-sarif@v1
         with:
