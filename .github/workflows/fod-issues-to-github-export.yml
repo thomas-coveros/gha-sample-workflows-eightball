@@ -19,6 +19,7 @@ jobs:
           fod_release_id: ${{ secrets.FOD_RELEASE_ID }}
           fod_vulnerability_embed: details
           json_github_output_file: ${GITHUB_WORKSPACE}/sarif/output.sarif
+          args: --debug
       - uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: ./sarif/output.sarif
