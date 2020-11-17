@@ -36,7 +36,7 @@ jobs:
       #   ScanCentral Client will download dependencies for maven, gradle and msbuild projects.
       #   For other build tools, add your build commands to download necessary dependencies and prepare according to Fortify on Demand Packaging documentation.
       - name: Download Fortify ScanCentral Client
-        uses: fortify/gha-setup-scancentral-client@master
+        uses: fortify/gha-setup-scancentral-client@v1
       - name: Package Code + Dependencies
         run: scancentral package $PACKAGE_OPTS -o package.zip
         env:
