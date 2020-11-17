@@ -10,8 +10,8 @@ jobs:
       - uses: actions/checkout@v2
       - uses: docker://rsenden/fortify-vulnerability-exporter:latest
         with:
-          from: fod
-          to: json.github
+          export_from: fod
+          export_to: json.github
           fod_baseUrl: https://ams.fortify.com
           fod_tenant: ${{ secrets.FOD_TENANT }}
           fod_userName: ${{ secrets.FOD_USER }}
