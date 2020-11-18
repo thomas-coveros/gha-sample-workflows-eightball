@@ -26,4 +26,4 @@ jobs:
         if: always()
         with:
           name: sarif-files
-          path: ./sarif
+          path: ./output.sarif
