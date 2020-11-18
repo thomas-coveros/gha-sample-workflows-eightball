@@ -18,7 +18,7 @@ jobs:
           fod_password: ${{ secrets.FOD_PAT }}
           fod_release_id: ${{ secrets.FOD_RELEASE_ID }}
           fod_vulnerability_embed: details
-          json_github_output_file: ${{ GITHUB_WORKSPACE }}/output.sarif
+          json_github_output_file: ${{ env.GITHUB_WORKSPACE }}/output.sarif
       - uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: ./output.sarif
