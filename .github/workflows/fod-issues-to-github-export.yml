@@ -10,20 +10,17 @@ jobs:
       - uses: actions/checkout@v2
       - uses: docker://rsenden/fortify-vulnerability-exporter:latest
         with:
-          export_from: fod
-          export_to: json.github
+          export_config: /config/FoDToGitHub.yml
           fod_baseUrl: https://ams.fortify.com
           fod_tenant: ${{ secrets.FOD_TENANT }}
           fod_userName: ${{ secrets.FOD_USER }}
           fod_password: ${{ secrets.FOD_PAT }}
           fod_release_id: ${{ secrets.FOD_RELEASE_ID }}
-          fod_vulnerability_embed: details
-          json_github_output_file: ${GITHUB_WORKSPACE}/output.sarif
       - uses: github/codeql-action/upload-sarif@v1
         with:
-          sarif_file: ./output.sarif
+          sarif_file: ./gh-fortify-sast.sarif
       - uses: actions/upload-artifact@v2
         if: always()
         with:
           name: sarif-files
-          path: ./output.sarif
+          path: ./gh-fortify-sast.sarif
