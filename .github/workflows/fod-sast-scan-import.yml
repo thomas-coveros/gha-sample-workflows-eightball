@@ -46,25 +46,25 @@ jobs:
       - name: Download Fortify on Demand Universal CI Tool
         uses: fortify/gha-setup-fod-uploader@v1
       - name: Perform SAST Scan
-        run: java -jar $FOD_UPLOAD_JAR -z package.zip -aurl $FOD_API_URL -purl $FOD_URL -rid "$FOD_RELEASE_ID" -tc "$FOD_TENANT" -uc "$FOD_USER" "$FOD_PAT" $FOD_UPLOADER_OPTS
+        run: java -jar $FOD_UPLOAD_JAR -z package.zip -aurl $FOD_AURL -purl $FOD_PURL -rid "$FOD_RELEASE_ID" -tc "$FOD_TENANT" -uc "$FOD_USER" "$FOD_PAT" $FOD_UPLOADER_OPTS
         env: 
-          FOD_TENANT: ${{ secrets.FOD_TENANT }}  
-          FOD_USER: ${{ secrets.FOD_USER }}
-          FOD_PAT: ${{ secrets.FOD_PAT }}
-          FOD_RELEASE_ID: ${{ secrets.FOD_RELEASE_ID }}
-          FOD_URL: "https://ams.fortify.com/"
-          FOD_API_URL: "https://api.ams.fortify.com/"
+          FOD_AURL: ${{ secrets.FOD_EIGHTBALL_API_URL }}
+          FOD_PURL: ${{ secrets.FOD_EIGHTBALL_BASE_URL }}
+          FOD_TENANT: ${{ secrets.FOD_EIGHTBALL_TENANT }}  
+          FOD_USER: ${{ secrets.FOD_EIGHTBALL_USER }}
+          FOD_PAT: ${{ secrets.FOD_EIGHTBALL_PAT }}
+          FOD_RELEASE_ID: ${{ secrets.FOD_EIGHTBALL_RELEASE_ID }} 
           FOD_UPLOADER_OPTS: "-ep 2 -pp 0 -I 1 -apf"
       
       # Once scan completes, pull SAST issues from Fortify on Demand and generate SARIF output.
       - name: Download Results
         uses: fortify/gha-fod-generate-sarif@1.1.0
         with:
-          base-url: https://ams.fortify.com/
-          tenant: ${{ secrets.FOD_TENANT }}
-          user: ${{ secrets.FOD_USER }}
-          password: ${{ secrets.FOD_PAT }}
-          release-id: ${{ secrets.FOD_RELEASE_ID }}
+          base-url: ${{ secrets.FOD_EIGHTBALL_BASE_URL }}
+          tenant: ${{ secrets.FOD_EIGHTBALL_TENANT }}
+          user: ${{ secrets.FOD_EIGHTBALL_USER }}
+          password: ${{ secrets.FOD_EIGHTBALL_PAT }}
+          release-id: ${{ secrets.FOD_EIGHTBALL_RELEASE_ID }}
           output: ./sarif/output.sarif
       
       # Import Fortify on Demand results to GitHub Security Code Scanning

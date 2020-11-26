@@ -10,11 +10,11 @@ jobs:
       - uses: actions/checkout@v2
       - uses: fortify/gha-fod-generate-sarif@master
         with:
-          base-url: https://ams.fortify.com/
-          tenant: ${{ secrets.FOD_TENANT }}
-          user: ${{ secrets.FOD_USER }}
-          password: ${{ secrets.FOD_PAT }}
-          release-id: ${{ secrets.FOD_RELEASE_ID }}
+          base-url: ${{ secrets.FOD_EIGHTBALL_BASE_URL }}
+          tenant: ${{ secrets.FOD_EIGHTBALL_TENANT }}
+          user: ${{ secrets.FOD_EIGHTBALL_USER }}
+          password: ${{ secrets.FOD_EIGHTBALL_PAT }}
+          release-id: ${{ secrets.FOD_EIGHTBALL_RELEASE_ID }}
           output: ./sarif/output.sarif
       - uses: github/codeql-action/upload-sarif@v1
         with:

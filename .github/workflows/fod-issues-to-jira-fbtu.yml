@@ -13,11 +13,11 @@ jobs:
           java-version: 1.8
       - uses: fortify/gha-setup-bugtracker-utility@master
       - env:
-          FBTU_FODBASEURL: https://ams.fortify.com/
-          FBTU_FODTENANT: ${{ secrets.FOD_TENANT }}
-          FBTU_FODUSERNAME: ${{ secrets.FOD_USER }}
-          FBTU_FODPASSWORD: ${{ secrets.FOD_PAT }}
-          FBTU_FODRELEASEID: ${{ secrets.FOD_RELEASE_ID }}
+          FBTU_FODBASEURL: ${{ secrets.FOD_EIGHTBALL_BASE_URL }}
+          FBTU_FODTENANT: ${{ secrets.FOD_EIGHTBALL_TENANT }}
+          FBTU_FODUSERNAME: ${{ secrets.FOD_EIGHTBALL_USER }}
+          FBTU_FODPASSWORD: ${{ secrets.FOD_EIGHTBALL_PAT }}
+          FBTU_FODRELEASEID: ${{ secrets.FOD_EIGHTBALL_RELEASE_ID }}
           FBTU_JIRABASEURL: ${{ secrets.JIRA_BASE_URL }}
           FBTU_JIRAUSERNAME: ${{ secrets.JIRA_USER }}
           FBTU_JIRAPASSWORD: ${{ secrets.JIRA_TOKEN }}
