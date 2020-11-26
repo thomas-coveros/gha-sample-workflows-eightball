@@ -1,4 +1,4 @@
-name: FoD issues to GitHub using FortifyVulnerabilityExporter
+name: SSC issues to GitHub using FortifyVulnerabilityExporter
 
 on: [workflow_dispatch]
 
