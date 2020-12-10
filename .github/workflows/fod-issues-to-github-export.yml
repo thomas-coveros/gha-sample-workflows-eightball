@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: docker://rsenden/fortify-vulnerability-exporter:latest
+      - uses: docker://fortifydocker/fortify-vulnerability-exporter:latest
         with:
           export_config: /config/FoDToGitHub.yml
           fod_baseUrl: ${{ secrets.FOD_EIGHTBALL_BASE_URL }}
