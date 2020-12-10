@@ -8,7 +8,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - uses: docker://rsenden/fortify-vulnerability-exporter:latest
+      - uses: docker://fortifydocker/fortify-vulnerability-exporter:latest
         with:
           export_config: /config/SSCToGitHub.yml
           ssc_baseUrl: ${{ secrets.SSC_EIGHTBALL_BASE_URL }}
