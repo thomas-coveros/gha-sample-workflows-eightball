@@ -1,4 +1,4 @@
-name: FoD issues to JIRA (Bugtracker Utility)
+name: FBTU-based FoD to JIRA export
 
 on: [workflow_dispatch]
 

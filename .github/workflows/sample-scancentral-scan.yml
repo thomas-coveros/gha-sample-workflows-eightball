@@ -1,4 +1,4 @@
-name: Start ScanCentral scan
+name: ScanCentral SAST Scan
 
 on: [workflow_dispatch]
 

@@ -1,4 +1,4 @@
-name: FoD issues to GitHub using FortifyVulnerabilityExporter
+name: Docker-based FoD to GitHub export
 
 on: [workflow_dispatch]
 

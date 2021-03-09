@@ -1,4 +1,4 @@
-name: SSC issues to GitHub using FortifyVulnerabilityExporter
+name: Docker-based SSC to GitHub export
 
 on: [workflow_dispatch]
 
