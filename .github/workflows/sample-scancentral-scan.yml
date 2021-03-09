@@ -3,7 +3,7 @@ name: ScanCentral SAST Scan
 on: [workflow_dispatch]
 
 jobs:
-  build:
+  ScanCentral-SAST-Scan:
     runs-on: ubuntu-latest
 
     steps:

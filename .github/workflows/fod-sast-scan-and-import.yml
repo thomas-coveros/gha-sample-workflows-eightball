@@ -10,7 +10,7 @@ on:
   
 
 jobs:
-  FoD-SAST-Scan:
+  FoD-SAST-Scan-And-Import:
     # Use the appropriate runner for building your source code. 
     # Use Windows runner for projects that use msbuild. Additional changes to RUN commands will be required.
     runs-on: ubuntu-latest
