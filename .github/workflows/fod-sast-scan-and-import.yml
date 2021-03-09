@@ -57,7 +57,7 @@ jobs:
           FOD_UPLOADER_OPTS: "-ep 2 -pp 0 -I 1 -apf"
       
       # Once scan completes, pull SAST issues from Fortify on Demand and generate SARIF output.
-      - name: Download Results
+      - name: Export results to GitHub-optimized SARIF
         uses: fortify/gha-export-vulnerabilities@v1
         with:
           fod_base_url: ${{ secrets.FOD_EIGHTBALL_BASE_URL }}
@@ -67,7 +67,7 @@ jobs:
           fod_release_id: ${{ secrets.FOD_EIGHTBALL_RELEASE_ID }}
       
       # Import Fortify on Demand results to GitHub Security Code Scanning
-      - name: Import Results
+      - name: Import results to GitHub Security Code Scanning
         uses: github/codeql-action/upload-sarif@v1
         with:
           sarif_file: ./gh-fortify-sast.sarif
