@@ -1,4 +1,4 @@
-name: FoD SAST Scan and Import
+name: fortify-ci-tools FoD scan
 
 on: 
   workflow_dispatch:
