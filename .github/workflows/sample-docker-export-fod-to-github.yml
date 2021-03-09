@@ -13,7 +13,7 @@ jobs:
           export_config: /config/FoDToGitHub.yml
           fod_baseUrl: ${{ secrets.FOD_EIGHTBALL_BASE_URL }}
           fod_tenant: ${{ secrets.FOD_EIGHTBALL_TENANT }}
-          fod_userName: ${{ secrets.FOD_EIGHTBALL_USER }}
+          fod_user: ${{ secrets.FOD_EIGHTBALL_USER }}
           fod_password: ${{ secrets.FOD_EIGHTBALL_PAT }}
           fod_release_id: ${{ secrets.FOD_EIGHTBALL_RELEASE_ID }}
       - uses: github/codeql-action/upload-sarif@v1
