@@ -21,7 +21,7 @@ jobs:
         uses: docker://fortifydocker/fortify-ci-tools:latest
         with:
           entrypoint: java
-          args: -jar /opt/FodUpload.jar -z package.zip -aurl $FOD_AURL -purl $FOD_PURL -rid $FOD_RELEASE_ID -tc $FOD_TENANT -uc $FOD_USER $FOD_PAT $FOD_UPLOADER_OPTS
+          args: -jar /opt/FodUpload.jar -z package.zip -aurl ${{env.FOD_AURL}} -purl ${{env.FOD_PURL}} -rid ${{env.FOD_RELEASE_ID}} -tc ${{env.FOD_TENANT}} -uc ${{env.FOD_USER}} ${{env.FOD_PAT}} ${{env.FOD_UPLOADER_OPTS}}
         env: 
           FOD_AURL: ${{ secrets.FOD_EIGHTBALL_API_URL }}
           FOD_PURL: ${{ secrets.FOD_EIGHTBALL_BASE_URL }}
