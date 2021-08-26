@@ -34,6 +34,8 @@ jobs:
         uses: fortify/gha-setup-scancentral-client@v1
       - name: Package Code + Dependencies
         run: scancentral package -bt mvn -o package.zip
+      - name: Show package contents
+        run: unzip -v package.zip
       
       # Start Fortify on Demand SAST scan and wait until results complete. Be sure to set secrets/variables for your FoD tenant.
       - name: Download Fortify on Demand Universal CI Tool
